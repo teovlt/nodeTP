@@ -1,3 +1,4 @@
+import AUTHORS from '../../data/authors.js'
 import TEAMS from '../../data/teams.js'
 
 //Je crée une variable Générale car je ne possède pas de base de données
@@ -66,10 +67,38 @@ const deleteTeam = (req, res) => {
   }
 }
 
+const getAuthorsOfTeam = (req, res) => {
+  const { id } = req.params
+
+  if (!id) {
+    return res.status(400).json({ error: 'The ID is invalid' })
+  }
+
+  const team = TEAMS.find((t) => t.id == id)
+
+  if (!team) {
+    return res.status(404).json({ error: 'There is no such team' })
+  }
+
+  let authors = []
+
+  team.authors.forEach((t) => {
+    const author = AUTHORS.find((a) => a.id === t)
+    if (author) {
+      authors.push(author)
+    }
+  })
+  if (authors.length === 0) {
+    return res.status(404).json({ error: 'There are no authors for this team' })
+  }
+  res.status(200).json(authors)
+}
+
 export default {
   getTeams,
   getTeam,
   createTeam,
   updateTeam,
   deleteTeam,
+  getAuthorsOfTeam,
 }

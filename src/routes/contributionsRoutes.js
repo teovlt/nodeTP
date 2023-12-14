@@ -18,4 +18,7 @@ router.put('/:id', contributionController.updateContribution)
 //Delete a contribution by his ID
 router.delete('/:id', contributionController.deleteContribution)
 
+//Get the team of a contribution by her ID
+router.get('/:id/team', contributionController.getTeamOfContribution)
+
 export default router

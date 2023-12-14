@@ -18,4 +18,7 @@ router.put('/:id', teamController.updateTeam)
 //DELETE a team by her ID
 router.delete('/:id', teamController.deleteTeam)
 
+//GET the authors of a team
+router.get('/:id/authors', teamController.getAuthorsOfTeam)
+
 export default router

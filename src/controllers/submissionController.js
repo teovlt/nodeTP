@@ -1,4 +1,6 @@
 import SUBMISSIONS from '../../data/submissions.js'
+import VENUES from '../../data/venues.js'
+import CONTRIBUTIONS from '../../data/contributions.js'
 
 let SUBMISSIONID = 3
 
@@ -73,10 +75,44 @@ const deleteSubmission = (req, res) => {
   }
 }
 
+const getVenueOfSubmission = (req, res) => {
+  const { id } = req.params
+  if (!id) {
+    return res.status(400).json({ error: 'The ID is invalid' })
+  }
+  const submission = SUBMISSIONS.find((t) => t.id == id)
+  if (!submission) {
+    return res.status(404).json({ error: 'There is no such submission' })
+  }
+  const venue = VENUES.find((v) => v.id === submission.venueId)
+  if (!venue) {
+    return res.status(404).json({ error: 'There is no such venue' })
+  }
+  res.status(200).json(venue)
+}
+
+const getContributionOfSubmission = (req, res) => {
+  const { id } = req.params
+  if (!id) {
+    return res.status(400).json({ error: 'The ID is invalid' })
+  }
+  const submission = SUBMISSIONS.find((t) => t.id == id)
+  if (!submission) {
+    return res.status(404).json({ error: 'There is no such submission' })
+  }
+  const contribution = CONTRIBUTIONS.find((c) => c.id === submission.contributionId)
+  if (!contribution) {
+    return res.status(404).json({ error: 'There is no such contribution' })
+  }
+  res.status(200).json(contribution)
+}
+
 export default {
   getSubmissions,
   getSubmission,
   createSubmission,
   updateSubmission,
   deleteSubmission,
+  getVenueOfSubmission,
+  getContributionOfSubmission,
 }

@@ -18,4 +18,10 @@ router.put('/:id', submissionController.updateSubmission)
 //DELETE a submission by her ID
 router.delete('/:id', submissionController.deleteSubmission)
 
+//GET the venue of a submission
+router.get('/:id/venue', submissionController.getVenueOfSubmission)
+
+//GET the contribution of a submission
+router.get('/:id/contribution', submissionController.getContributionOfSubmission)
+
 export default router

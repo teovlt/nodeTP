@@ -1,4 +1,5 @@
 import AUTHORS from '../../data/authors.js'
+import TEAMS from '../../data/teams.js'
 
 //Création d'une variable permettant d'incrémenter l'id lors de la création d'un auteur
 let AUTHORID = 3
@@ -64,10 +65,27 @@ const deleteAuthor = (req, res) => {
   }
 }
 
+const getTeamOfAuthor = (req, res) => {
+  const { id } = req.params
+  if (!id) {
+    return res.status(400).json({ error: 'The ID is invalid' })
+  }
+  const author = AUTHORS.find((t) => t.id == id)
+  if (!author) {
+    return res.status(404).json({ error: 'There is no such author' })
+  }
+  const team = TEAMS.find((t) => t.id === author.teamId)
+  if (!team) {
+    return res.status(404).json({ error: 'There is no such team' })
+  }
+  res.status(200).json(team)
+}
+
 export default {
   getAuthors,
   getAuthor,
   createAuthor,
   updateAuthor,
   deleteAuthor,
+  getTeamOfAuthor,
 }
