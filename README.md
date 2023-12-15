@@ -66,10 +66,10 @@ subgraph "Venue"
 E[Venue]
 end
 
-A -->|contains a list of| B
-B -->|is in a| A
-A -->|can have a list of| C
-C -->|belongs to a| A
+A -->|possède une liste de| B
+B -->|est dans une| A
+A -->|a possiblement une liste de| C
+C -->|appartient à une| A
 D -->|possède une | E
 D -->|possède une | C
 
