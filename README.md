@@ -64,10 +64,18 @@ subgraph "Venue"
 E[Venue]
 end
 
-A --> B
-A --> C
-C --> D
-D --> E
+subgraph "Laboratory"
+L[Laboratory]
+end
+
+A -->|contains a list of| B
+B -->|is in a| A
+A -->|can have a list of| C
+C -->|belongs to a| A
+D -->|possède une | E
+D -->|possède une | C
+L -->|contains| A,B,C,D,E
+
 ```
 
 ## Comment lancer le serveur 🚀
