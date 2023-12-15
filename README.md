@@ -40,6 +40,35 @@ Elle peut être associée à plusieurs soumissions (Submission).
 
 Cette approche permet de suivre le cycle de vie complet d'une contribution, depuis sa création au sein d'une équipe jusqu'à sa soumission à une venue potentielle. Les relations entre ces entités permettent de naviguer à travers les différentes informations liées aux contributions scientifiques au sein du laboratoire.
 
+Ci-dessous un graphique réprésentatif:
+
+graph TD
+
+subgraph "Team"
+A[Team]
+end
+
+subgraph "Author"
+B[Author]
+end
+
+subgraph "Contribution"
+C[Contribution]
+end
+
+subgraph "Submission"
+D[Submission]
+end
+
+subgraph "Venue"
+E[Venue]
+end
+
+A --> B
+A --> C
+C --> D
+D --> E
+
 ## Comment lancer le serveur 🚀
 
 Avant tout placez bien dans le fichier racine contenant server.js
@@ -99,6 +128,8 @@ Le serveur devrait maintenant être lancé sur le port **3000** (un petit messag
 | 2   | Venue B | Rank B |
 | 3   | Venue C | Rank C |
 
+Le point d'entrées de mes données est le laboratoire, il contient tout mon modèle de données.
+
 ## Méthodologie suivie
 
 Pour ce qui est de la méthodologie suivie, j'ai préféré commencer par coder le serveur et faire en dernier ma spécification oepnAPI.
@@ -106,3 +137,5 @@ Pour ce qui est de la méthodologie suivie, j'ai préféré commencer par coder 
 Je trouve l'approche **"code d'abord"** permet souvent une progression plus rapide dans le développement. En début de projet, il peut être plus instinctif pour un développeur de commencer à traduire les idées en code fonctionnel plutôt que de se plonger dans la formalisation détaillée de la spécification. Cela offre la possibilité d'itérer rapidement sur les fonctionnalités et de visualiser concrètement l'évolution du projet.
 
 Je me suis aussi rendu compte de problème dans mon modèle de données pendant que je développais le serveur, ce qui m'a fait changé seulement un peu de code alors que si j'avais commencé par la spécification, j'aurais probablement du la changer aussi pendant le développement.
+
+Pour donner mon point de vue personnel, je ne pense pas refaire du swagger dans le cas ou je me dois de faire un serveur nodeJS, je voulais donc être capable d'en faire un de moi même sans m'aider d'une génération de code.
