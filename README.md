@@ -1,4 +1,4 @@
-# Mon projet API REST
+# Mon projet: 'Réalisation d'un serveur REST'
 
 15/12/2023
 Teo Villet
@@ -145,3 +145,10 @@ Je trouve l'approche **"code d'abord"** permet souvent une progression plus rapi
 Je me suis aussi rendu compte de problème dans mon modèle de données pendant que je développais le serveur, ce qui m'a fait changé seulement un peu de code alors que si j'avais commencé par la spécification, j'aurais probablement du la changer aussi pendant le développement.
 
 Pour donner mon point de vue personnel, je ne pense pas refaire du swagger dans le cas ou je me dois de faire un serveur nodeJS, je voulais donc être capable d'en faire un de moi même sans m'aider d'une génération de code.
+
+<!-- MARKDOWN LINKS & IMAGES -->
+
+[Node.js]: https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white
+[Node-url]: https://nodejs.org/en
+[Express.js]: https://img.shields.io/badge/Express.js-404D59?style=for-the-badge
+[Express-url]: https://expressjs.com/en
