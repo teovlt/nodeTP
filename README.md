@@ -42,8 +42,8 @@ Cette approche permet de suivre le cycle de vie complet d'une contribution, depu
 
 Ci-dessous un graphique réprésentatif:
 
+```mermaid
 graph TD
-
 subgraph "Team"
 A[Team]
 end
@@ -68,6 +68,7 @@ A --> B
 A --> C
 C --> D
 D --> E
+```
 
 ## Comment lancer le serveur 🚀
 
