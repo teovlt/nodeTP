@@ -38,9 +38,11 @@ Elle peut également être associée à une venue spécifique (Venue) où la con
 Une venue représente l'endroit où une contribution scientifique pourrait être présentée ou publiée.
 Elle peut être associée à plusieurs soumissions (Submission).
 
+Toutes ces données sont rassemblés dans le laboratoire **(Laboratory)**.
+
 Cette approche permet de suivre le cycle de vie complet d'une contribution, depuis sa création au sein d'une équipe jusqu'à sa soumission à une venue potentielle. Les relations entre ces entités permettent de naviguer à travers les différentes informations liées aux contributions scientifiques au sein du laboratoire.
 
-Ci-dessous un graphique réprésentatif:
+Ci-dessous un graphique réprésentatif de mon modèle de données:
 
 ```mermaid
 graph TD
@@ -63,7 +65,6 @@ end
 subgraph "Venue"
 E[Venue]
 end
-
 
 A -->|contains a list of| B
 B -->|is in a| A
